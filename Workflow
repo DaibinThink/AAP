@@ -1921,6 +1921,54 @@
       "widgets_values": [
         "Flux2_Klein_9b_kv"
       ]
+    },
+    {
+      "id": 900,
+      "type": "MarkdownNote",
+      "pos": [
+        2670,
+        761.67
+      ],
+      "size": [
+        480,
+        660
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## AAP Documentation\n\n**AAP Version:** v0.2 (工程整理版)\n\n**Base Workflow:** 官方 Flux.2 Klein 9B KV (Reference Editing) Workflow —— Kernel 部分保持零改动\n\n**Workflow Version:** v0.2 —— 本版本仅做Group重组与文档补充，未修改Prompt/Kernel/ReferenceLatent/Condition Flow\n\n**Model Version:**\n- diffusion_models: flux-2-klein-9b-kv-fp8.safetensors\n- text_encoders: qwen_3_8b_fp8mixed.safetensors\n- vae: flux2-vae.safetensors\n\n**Recommended CFG:** 1（官方固定值，属于Flux2算法要求，非可调优化参数，不应修改）\n\n**Recommended Steps:** 4（Flux2Scheduler默认值）\n\n**Recommended Resolution:** 与参考图1（man_in_street.png经ImageScaleToTotalPixels缩放后的尺寸）动态一致，由GetImageSize节点自动读取并传递给Flux2Scheduler与EmptyFlux2LatentImage，无需手动设置\n\n**Experiment Notes:** （占位，供后续实验记录填写）\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "showAdvanced": null
+    },
+    {
+      "id": 901,
+      "type": "MarkdownNote",
+      "pos": [
+        2670,
+        1501.67
+      ],
+      "size": [
+        480,
+        460
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "## Future Expansion（占位说明，不包含任何实际功能节点）\n\n以下方向为规划中的扩展接口，均未在当前Workflow中实现，不影响现有Kernel/Reference/Sampling逻辑：\n\n- **Reference 3 / Reference 4**：可参考现有Reference Conditioning Subgraph的链式模式（134→132）继续串联扩展，官方MarkdownNote节点692（\"More reference images\"）已提示该扩展模式为官方预留设计\n- **Material Conditioning**（规划中）\n- **Lighting Conditioning**（规划中）\n- **Furniture Conditioning**（规划中）\n- **Landscape Conditioning**（规划中）\n\n本Group仅作为文档占位（Documentation Only），未新增任何Condition/Sampler/Model节点。\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "showAdvanced": null
     }
   ],
   "config": {},
@@ -1955,7 +2003,7 @@
       "id": 3,
       "color": "#3f789e",
       "flags": {},
-      "title": "Sampler",
+      "title": "Sampling",
       "bounding": [
         1430.3333416582598,
         743.0000044086256,
@@ -1981,7 +2029,7 @@
       "id": 6,
       "color": "#3f789e",
       "flags": {},
-      "title": "Reference Conditioning",
+      "title": "Reference",
       "bounding": [
         500,
         1371.6666666666667,
@@ -1989,10 +2037,49 @@
         520
       ],
       "font_size": 24
+    },
+    {
+      "id": 7,
+      "color": "#3f789e",
+      "flags": {},
+      "title": "Output",
+      "bounding": [
+        2086.67,
+        741.67,
+        500,
+        750
+      ],
+      "font_size": 24
+    },
+    {
+      "id": 8,
+      "color": "#3f789e",
+      "flags": {},
+      "title": "Documentation",
+      "bounding": [
+        2650,
+        741.67,
+        520,
+        700
+      ],
+      "font_size": 24
+    },
+    {
+      "id": 9,
+      "color": "#3f789e",
+      "flags": {},
+      "title": "Future Expansion",
+      "bounding": [
+        2650,
+        1481.67,
+        520,
+        500
+      ],
+      "font_size": 24
     }
   ],
   "version": 0.4,
-  "revision": 0,
+  "revision": 1,
   "definitions": {
     "subgraphs": [
       {
@@ -2936,6 +3023,6 @@
     ]
   },
   "last_link_id": 1746,
-  "last_node_id": 692,
+  "last_node_id": 901,
   "floatingLinks": null
 }
